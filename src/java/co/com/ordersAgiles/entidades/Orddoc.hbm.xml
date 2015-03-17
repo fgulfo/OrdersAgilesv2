@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 27/02/2015 01:39:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="co.com.ordersAgiles.entidades.Orddoc" table="orddoc" schema="public" optimistic-lock="version">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="ordbdg" class="co.com.ordersAgiles.entidades.Ordbdg" fetch="select">
+            <column name="bodega" />
+        </many-to-one>
+        <many-to-one name="orddoc" class="co.com.ordersAgiles.entidades.Orddoc" fetch="select">
+            <column name="documento_asociado" />
+        </many-to-one>
+        <many-to-one name="ordfrp" class="co.com.ordersAgiles.entidades.Ordfrp" fetch="select">
+            <column name="forma_pago" />
+        </many-to-one>
+        <many-to-one name="ordkja" class="co.com.ordersAgiles.entidades.Ordkja" fetch="select">
+            <column name="caja" />
+        </many-to-one>
+        <many-to-one name="ordterByReceptor" class="co.com.ordersAgiles.entidades.Ordter" fetch="select">
+            <column name="receptor" />
+        </many-to-one>
+        <many-to-one name="ordterByEmisor" class="co.com.ordersAgiles.entidades.Ordter" fetch="select">
+            <column name="emisor" />
+        </many-to-one>
+        <property name="alerta" type="java.lang.Integer">
+            <column name="alerta" />
+        </property>
+        <property name="codigo" type="string">
+            <column name="codigo" />
+        </property>
+        <property name="descuento" type="java.lang.Double">
+            <column name="descuento" precision="17" scale="17" />
+        </property>
+        <property name="estado" type="java.lang.Integer">
+            <column name="estado" />
+        </property>
+        <property name="fecha1" type="timestamp">
+            <column name="fecha1" length="29" />
+        </property>
+        <property name="fecha2" type="timestamp">
+            <column name="fecha2" length="29" />
+        </property>
+        <property name="observaciones" type="string">
+            <column name="observaciones" />
+        </property>
+        <property name="retefuente" type="java.lang.Double">
+            <column name="retefuente" precision="17" scale="17" />
+        </property>
+        <property name="reteica" type="java.lang.Double">
+            <column name="reteica" precision="17" scale="17" />
+        </property>
+        <property name="reteiva" type="java.lang.Double">
+            <column name="reteiva" precision="17" scale="17" />
+        </property>
+        <property name="subtotal" type="java.lang.Double">
+            <column name="subtotal" precision="17" scale="17" />
+        </property>
+        <property name="tipoRetefuente" type="string">
+            <column name="tipo_retefuente" />
+        </property>
+        <property name="tipoReteica" type="string">
+            <column name="tipo_reteica" />
+        </property>
+        <property name="tipoReteiva" type="string">
+            <column name="tipo_reteiva" />
+        </property>
+        <property name="total" type="java.lang.Double">
+            <column name="total" precision="17" scale="17" />
+        </property>
+        <property name="totalIva" type="java.lang.Double">
+            <column name="total_iva" precision="17" scale="17" />
+        </property>
+        <property name="vendedor" type="string">
+            <column name="vendedor" />
+        </property>
+        <property name="tipo" type="java.lang.Integer">
+            <column name="tipo" />
+        </property>
+        <set name="orddocs" table="orddoc" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="documento_asociado" />
+            </key>
+            <one-to-many class="co.com.ordersAgiles.entidades.Orddoc" />
+        </set>
+        <set name="orddtls" table="orddtl" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="documento" />
+            </key>
+            <one-to-many class="co.com.ordersAgiles.entidades.Orddtl" />
+        </set>
+    </class>
+</hibernate-mapping>

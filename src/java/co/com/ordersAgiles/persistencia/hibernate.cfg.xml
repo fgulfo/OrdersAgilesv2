@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+    <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/ordagl</property>
+    <property name="hibernate.connection.username">postgres</property>
+    <property name="hibernate.connection.password">s0cc3r413</property>
+    <property name="hibernate.show_sql">true</property>
+    <mapping resource="co/com/ordersAgiles/entidades/Ordktg.hbm.xml"/>
+    <mapping resource="co/com/ordersAgiles/entidades/Ordkja.hbm.xml"/>
+    <mapping resource="co/com/ordersAgiles/entidades/TiposDocumento.hbm.xml"/>
+    <mapping resource="co/com/ordersAgiles/entidades/Ordprm.hbm.xml"/>
+    <mapping resource="co/com/ordersAgiles/entidades/Ordart.hbm.xml"/>
+    <mapping resource="co/com/ordersAgiles/entidades/Orddoc.hbm.xml"/>
+    <mapping resource="co/com/ordersAgiles/entidades/Ordusr.hbm.xml"/>
+    <mapping resource="co/com/ordersAgiles/entidades/Ordter.hbm.xml"/>
+    <mapping resource="co/com/ordersAgiles/entidades/Ordarq.hbm.xml"/>
+    <mapping resource="co/com/ordersAgiles/entidades/Orddtl.hbm.xml"/>
+    <mapping resource="co/com/ordersAgiles/entidades/Ordinv.hbm.xml"/>
+    <mapping resource="co/com/ordersAgiles/entidades/Ordbdg.hbm.xml"/>
+    <mapping resource="co/com/ordersAgiles/entidades/Ordprf.hbm.xml"/>
+    <mapping resource="co/com/ordersAgiles/entidades/Ordfrp.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

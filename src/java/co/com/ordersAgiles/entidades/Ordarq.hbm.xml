@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 27/02/2015 01:39:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="co.com.ordersAgiles.entidades.Ordarq" table="ordarq" schema="public" optimistic-lock="version">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="ordkja" class="co.com.ordersAgiles.entidades.Ordkja" fetch="select">
+            <column name="caja" />
+        </many-to-one>
+        <many-to-one name="ordusrByUsuarioapertura" class="co.com.ordersAgiles.entidades.Ordusr" fetch="select">
+            <column name="usuarioapertura" />
+        </many-to-one>
+        <many-to-one name="ordusrByUsuariocierre" class="co.com.ordersAgiles.entidades.Ordusr" fetch="select">
+            <column name="usuariocierre" />
+        </many-to-one>
+        <property name="descuadre" type="java.lang.Double">
+            <column name="descuadre" precision="17" scale="17" />
+        </property>
+        <property name="estado" type="java.lang.Integer">
+            <column name="estado" />
+        </property>
+        <property name="fechaapertura" type="timestamp">
+            <column name="fechaapertura" length="29" />
+        </property>
+        <property name="fechacierre" type="timestamp">
+            <column name="fechacierre" length="29" />
+        </property>
+        <property name="valorapertura" type="java.lang.Double">
+            <column name="valorapertura" precision="17" scale="17" />
+        </property>
+        <property name="valorcierre" type="java.lang.Double">
+            <column name="valorcierre" precision="17" scale="17" />
+        </property>
+        <property name="salidas" type="java.lang.Double">
+            <column name="salidas" precision="17" scale="17" />
+        </property>
+    </class>
+</hibernate-mapping>

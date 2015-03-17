@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 27/02/2015 01:39:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="co.com.ordersAgiles.entidades.Ordart" table="ordart" schema="public" optimistic-lock="version">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="ordktg" class="co.com.ordersAgiles.entidades.Ordktg" fetch="select">
+            <column name="categoria" />
+        </many-to-one>
+        <property name="descripcion" type="string">
+            <column name="descripcion" />
+        </property>
+        <property name="estado" type="java.lang.Integer">
+            <column name="estado" />
+        </property>
+        <property name="iva" type="java.lang.Double">
+            <column name="iva" precision="17" scale="17" />
+        </property>
+        <property name="ivaPtj" type="java.lang.Double">
+            <column name="iva_ptj" precision="17" scale="17" />
+        </property>
+        <property name="marca" type="string">
+            <column name="marca" />
+        </property>
+        <property name="modelo" type="string">
+            <column name="modelo" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" />
+        </property>
+        <property name="observaciones" type="string">
+            <column name="observaciones" />
+        </property>
+        <property name="valorUnit" type="java.lang.Double">
+            <column name="valor_unit" precision="17" scale="17" />
+        </property>
+        <property name="imagen" type="string">
+            <column name="imagen" />
+        </property>
+        <property name="codigoBarra" type="string">
+            <column name="codigo_barra" />
+        </property>
+        <set name="orddtls" table="orddtl" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="articulo" />
+            </key>
+            <one-to-many class="co.com.ordersAgiles.entidades.Orddtl" />
+        </set>
+        <set name="ordinvs" table="ordinv" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="articulo" not-null="true" />
+            </key>
+            <one-to-many class="co.com.ordersAgiles.entidades.Ordinv" />
+        </set>
+    </class>
+</hibernate-mapping>

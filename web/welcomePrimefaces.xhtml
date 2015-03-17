@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>OrdersAgiles</title>
+            </f:facet>
+            
+            <link href="css/estiylo.css" rel="stylesheet" type="text/css" />
+            
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="53" resizable="true" closable="true" collapsible="true">
+                    <h:form id="tool">
+                    <h:graphicImage value=""/>
+                    <p:toolbar>
+                        <f:facet name="right">
+                            <p:menuButton value="Flavio Gulfo">
+                                <p:menuitem value="Salir"/>
+                            </p:menuButton>
+                        </f:facet>
+                    </p:toolbar>
+                    </h:form>
+                </p:layoutUnit>
+
+               <!-- <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>-->
+
+                <p:layoutUnit position="west" size="252" header="OrdersAgiles" collapsible="true">
+                    <h:form id="menu">
+                        <p:accordionPanel dynamic="true" activeIndex="false">
+                            <p:tab title="Administrar Contenido">
+                                <p:panelGrid columns="2" style="text-align: center; line-height: 0.2em;">
+                                    <p:commandButton value="Catalogo"/>
+                                    <p:commandButton value="Menu del Dia"/>
+                                    <p:commandButton value="Oferta"/>
+                                </p:panelGrid>
+                            </p:tab>
+                            <p:tab title="Administrar Venta">
+                                <p:panelGrid columns="2" style="text-align: center; line-height: 0.2em;">
+                                    <p:commandButton value="Pago"/>
+                                    <p:commandButton value="Pedido"/>
+                                    <p:commandButton value="Venta"/>
+                                </p:panelGrid>
+                            </p:tab>
+                            <p:tab title="Administrar Consulta">
+                                <p:panelGrid columns="2" style="text-align: center; line-height: 0.2em;">
+                                    <p:commandButton value="Reporte"/>
+                                </p:panelGrid>
+                            </p:tab>
+                            <p:tab title="Administrar">
+                                <p:panelGrid columns="2" style="text-align: center; line-height: 0.2em;">
+                                    <p:commandButton value="Arqueo"/>
+                                    <p:commandButton value="Articulo"/>
+                                    <p:commandButton value="Bodega"/>
+                                    <p:commandButton value="Caja"/>
+                                    <p:commandButton value="Categoria"/>
+                                    <p:commandButton value="Documento"/>
+                                    <p:commandButton value="Formas Pago"/>
+                                    <p:commandButton value="Inventario"/>
+                                    <p:commandButton value="Menu"/>
+                                    <p:commandButton value="Perfile" action="vistaOrdPerfiles?faces-redirect=true" update=":menu"/>
+                                    <p:commandButton value="Permiso" action="vistaOrdPermisos?faces-redirect=true" update=":menu"/>
+                                    <p:commandButton value="Usuarios"/>
+                                </p:panelGrid>
+                            </p:tab>
+                        </p:accordionPanel>
+                        <p:commandButton value="Pagina Principal" action="welcomePrimefaces?faces-redirect=true" update=":menu"/>
+                    </h:form>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+

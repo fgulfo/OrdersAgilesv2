@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>OrdersAgiles</title>
+            </f:facet>
+
+            <link href="css/estiylo.css" rel="stylesheet" type="text/css" />
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+                <div class="logo">
+                        
+                    <p:layoutUnit position="north" size="53" resizable="true" closable="true" collapsible="true">
+                        <h:form id="tool">
+                            <h:graphicImage value=""/>
+                            <p:toolbar>
+                                <f:facet name="right">
+                                    <p:menuButton value="Flavio Gulfo">
+                                        <p:menuitem value="Salir"/>
+                                    </p:menuButton>
+                                </f:facet>
+                            </p:toolbar>
+                        </h:form>
+                    </p:layoutUnit>
+                </div>
+                <p:layoutUnit rendered="false" position="south" size="100" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="252" header="OrdersAgiles" collapsible="true">
+                    <h:form id="menuPerfiles">
+                        <p:accordionPanel dynamic="true" activeIndex="false">
+                        <p:tab title="Administrar Contenido">
+                            <p:panelGrid columns="2" style="text-align: center; line-height: 0.2em;">
+                                <p:commandButton value="Catalogo"/>
+                                <p:commandButton value="Menu del Dia"/>
+                                <p:commandButton value="Oferta"/>
+                            </p:panelGrid>
+                        </p:tab>
+                        <p:tab title="Administrar Venta">
+                            <p:panelGrid columns="2" style="text-align: center; line-height: 0.2em;">
+                                <p:commandButton value="Pago"/>
+                                <p:commandButton value="Pedido"/>
+                                <p:commandButton value="Venta"/>
+                            </p:panelGrid>
+                        </p:tab>
+                        <p:tab title="Administrar Consulta">
+                            <p:panelGrid columns="2" style="text-align: center; line-height: 0.2em;">
+                                <p:commandButton value="Reporte"/>
+                            </p:panelGrid>
+                        </p:tab>
+                            <p:tab title="Administrar">
+                            <p:panelGrid columns="2" style="text-align: center; line-height: 0.1em;">
+                                <p:commandButton value="Arqueo"/>
+                                <p:commandButton value="Articulo"/>
+                                <p:commandButton value="Bodega"/>
+                                <p:commandButton value="Caja"/>
+                                <p:commandButton value="Categoria"/>
+                                <p:commandButton value="Documento"/>
+                                <p:commandButton value="Formas Pago"/>
+                                <p:commandButton value="Inventario"/>
+                                <p:commandButton value="Menu"/>
+                                <p:commandButton value="Perfile" action="vistaOrdPerfiles?faces-redirect=true" update=":menuPerfiles"/>
+                                <p:commandButton value="Permiso" action="vistaOrdPermisos?faces-redirect=true" update=":menuPerfiles" />
+                                <p:commandButton value="Usuario"/>
+                            </p:panelGrid>
+                        </p:tab>
+                    </p:accordionPanel>
+                        <p:commandButton value="Pagina Principal" action="welcomePrimefaces?faces-redirect=true" update=":menuPerfiles"/>
+                    </h:form>
+                   
+                </p:layoutUnit>
+                <h:form id="listaPerfiles">   
+                <p:layoutUnit position="center">
+                    
+                     
+                    <p:dataTable id="dtperfiles" var="per" value="#{ordprfejBean.listaPerfiles}" 
+                                 emptyMessage="No hay perfiles"
+                                 paginator="true" rows="10" paginatorPosition="top"
+                                 selectionMode="single" selection="#{ordprfejBean.perfil}" rowKey="#{per.id}"
+                                >
+                            <f:facet name="header">
+                                Lista de Perfiles
+                            </f:facet>
+                            <p:column headerText="Identificacion">
+                                <h:outputText value="#{per.id}"/>
+                            </p:column>
+                            <p:column headerText="Nombre">
+                                <h:outputText value="#{per.nombre}"/>
+                            </p:column>
+                            <p:column headerText="Descripcion">
+                                <h:outputText value="#{per.descripcion}"/>
+                            </p:column>
+                            <f:facet name="footer">
+                             <p:commandButton value="Agregar" onclick="PF('addperfiles').show();"
+                                              action="#{ordprfejBean.nuevo()}"
+                                              process="dtperfiles"
+                                              update=":listaPerfiles:perfilDetail"/>
+                                                     
+                             <p:commandButton value="+ Editar"
+                                              process="dtperfiles"
+                                              update=":listaPerfiles:perfilDetail"
+                                              oncomplete="PF('addperfiles').show()"
+                                              action="#{ordprfejBean.ocultarBtnGuardar()}">    
+                            </p:commandButton>
+                            <p:commandButton value="- Eliminar" action="#{ordprfejBean.eliminar()}"
+                                             update=":listaPerfiles:dtperfiles"/>
+                            </f:facet>
+                                        
+                        </p:dataTable>
+                    
+                    
+                            <h:commandLink value="EXCEL">
+                                <!--<p:graphicImage name="/demo/images/excel.png" width="24"/>-->
+                                <p:dataExporter type="xls" target="dtperfiles" fileName="perfiles" pageOnly="true"/>
+                            </h:commandLink>
+ 
+                            <h:commandLink value="PDF">
+                                <!--<p:graphicImage name="/demo/images/pdf.png" width="24"/>-->
+                                <p:dataExporter type="pdf" target="dtperfiles" fileName="perfiles" pageOnly="true"/>
+                            </h:commandLink>
+                                         
+                </p:layoutUnit>
+
+                    <p:dialog  id="diagperfil" widgetVar="addperfiles" modal="true" position="center" header="Agregar Perfil" 
+                               closable="true" style="text-align: center;">
+                        <p:outputPanel id="perfilDetail" style="text-align: center;">
+                            <p:panelGrid columns="2"  
+                                         columnClasses="label,value">
+                                <h:outputText value="Nombre:"/>
+                                <p:inputText id="nombre" value="#{ordprfejBean.perfil.nombre}" required="true"
+                                             requiredMessage="El campo nombre no puede ir vacio"/>
+                                <p:outputLabel for="estado" value="Estado:" />
+                                <p:selectOneRadio id="estado" value="#{ordprfejBean.perfil.estado}">
+                                    <f:selectItem itemLabel="Inactivo" itemValue="0" />
+                                    <f:selectItem itemLabel="Activo" itemValue="1" />
+                                </p:selectOneRadio>
+                                <h:outputText value="Descripcion:"/>
+                                <p:inputTextarea id="descripcion" value="#{ordprfejBean.perfil.descripcion}"/>
+                                <p:commandButton rendered="#{ordprfejBean.estadoBtnGuardar}" value="Guardar" oncomplete="PF('addperfiles').hide()"
+                                                 action="#{ordprfejBean.insertar()}"
+                                                 update=":listaPerfiles:dtperfiles"/>
+                                <p:commandButton rendered="#{ordprfejBean.estadoBtnModificar}" value="Modificar" oncomplete="PF('addperfiles').hide()"
+                                                 action="#{ordprfejBean.modificar()}"
+                                                 update=":listaPerfiles:dtperfiles"/>
+                            </p:panelGrid>
+                        </p:outputPanel>
+                    </p:dialog>
+                </h:form>
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+

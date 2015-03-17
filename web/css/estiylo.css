@@ -1,0 +1,19 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2/03/2015, 02:38:59 PM
+    Author     : Disable
+*/
+
+.ui-widget{
+                font-size: 90% !important;
+                font-family: sans-serif;
+                }
+
+.ui-layout-unit-content-north{
+    /*background-image: url(../img/logomini1.png);*/
+    background-image:url(../image/logoe4.png)!important;
+}

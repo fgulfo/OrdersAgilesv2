@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="ordagl" match-schema="public"/>
+  <table-filter match-name="ordprf"/>
+  <table-filter match-name="ordter"/>
+  <table-filter match-name="ordinv"/>
+  <table-filter match-name="ordprm"/>
+  <table-filter match-name="ordktg"/>
+  <table-filter match-name="ordarq"/>
+  <table-filter match-name="ordusr"/>
+  <table-filter match-name="ordrup"/>
+  <table-filter match-name="ordrpp"/>
+  <table-filter match-name="ordkja"/>
+  <table-filter match-name="ordbdg"/>
+  <table-filter match-name="ordfrp"/>
+  <table-filter match-name="orddoc"/>
+  <table-filter match-name="ordart"/>
+  <table-filter match-name="orddtl"/>
+  <table-filter match-name="tipos_documento"/>
+</hibernate-reverse-engineering>
